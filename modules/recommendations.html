@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="Kairo Recomendaciones — anime y manga fuera de tu inventario"><title>Kairo — Recomendaciones</title>  <link rel="stylesheet" href="../assets/css/kairo.css">
+</head><body><div id="loadingScreen" class="loading-screen square"><div class="loader-box square"><div class="loading-arrow"></div><div class="loading-text">Cargando Recomendaciones</div></div></div><div class="module-page app"><header class="site-header"><a class="brand-link" href="../index.html"><div class="brand"><div class="brand-mark square">K</div><div class="brand-copy"><div class="brand-name">KAIRO</div><div class="brand-subtitle">RECOMENDACIONES</div></div></div></a><nav class="main-nav"><a class="nav-button square" href="../index.html">INICIO</a><a class="nav-button square" href="metadata.html">METADATA</a><a class="nav-button square" href="inventory.html">INVENTORY</a><a class="nav-button square" href="analytics.html">ANALYTICS</a><a class="nav-button square active" href="recommendations.html">RECOMENDACIONES</a></nav></header><main class="module-main"><section class="module-heading square"><p class="eyebrow">04 / RECOMENDACIONES</p><h1>LO QUE TODAVÍA NO TIENES</h1><p>Kairo analiza tu Inventory completo —visto y pendiente—, cruza tus géneros con Analytics y utiliza los datos de Metadata para explicarte cada sugerencia. Un título que ya esté en tu inventario no vuelve a aparecer.</p></section><div id="recommendationExplain" class="recommendation-explain"></div><div class="recommendation-count" id="recommendationCount"></div><section class="recommendation-grid"><section class="recommendation-panel"><header class="recommendation-head"><div><p class="eyebrow">ANIME</p><h2>MEJORES ANIMES PARA TI</h2></div><span class="section-mark">01</span></header><p>Entre 5 y 10 resultados cuando el catálogo dispone de suficientes títulos fuera de tu inventario.</p><div id="animeRecommendations" class="recommendation-list"></div></section><section class="recommendation-panel"><header class="recommendation-head"><div><p class="eyebrow">MANGA</p><h2>MEJORES MANGAS PARA TI</h2></div><span class="section-mark">02</span></header><p>La selección se hace por afinidad, valoración y popularidad, separando el manga del anime.</p><div id="mangaRecommendations" class="recommendation-list"></div></section></section></main></div>
+<script src="../assets/data/catalog.js"></script>
+<script src="../assets/data/title-aliases.js"></script>
+<script src="../assets/data/title-profiles.js"></script>
+<script src="../assets/js/kairo-core.js"></script>
+<script src="../assets/js/kairo-services.js"></script>
+<script src="../assets/js/kairo-modules.js"></script>
+<script>
+  window.addEventListener('load', function(){
+    document.getElementById('app')?.classList.add('ready');
+    document.querySelector('.module-page')?.classList.add('ready');
+    document.getElementById('loadingScreen')?.classList.add('is-hidden');
+  });
+</script>
+</body></html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kairo — Anime & Manga Collection">
+  <meta name="theme-color" content="#07090f">
+  <title>Kairo</title>
+  <link rel="stylesheet" href="assets/css/kairo.css">
+</head>
+<body>
+  <div id="loadingScreen" class="loading-screen" aria-live="polite" aria-label="Cargando Kairo">
+    <div class="loader-box">
+      <div class="loading-arrow" aria-hidden="true"></div>
+      <div class="loading-text">Cargando Kairo</div>
+    </div>
+  </div>
+
+  <div id="app" class="app">
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">K</div>
+        <div class="brand-copy">
+          <div class="brand-name">KAIRO</div>
+          <div class="brand-subtitle">Anime & Manga Toolkit</div>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Módulos">
+        <a class="nav-button active" href="index.html">INICIO</a>
+        <a class="nav-button" href="modules/metadata.html">METADATA</a>
+        <a class="nav-button" href="modules/inventory.html">INVENTORY</a>
+        <a class="nav-button" href="modules/analytics.html">ANALYTICS</a>
+        <a class="nav-button" href="modules/recommendations.html">RECOMENDACIONES</a>
+        
+      </nav>
+    </header>
+
+    <main class="module-main">
+      <section class="module-heading">
+        <p class="eyebrow">00 / SISTEMA</p>
+        <h1>KAIRO</h1>
+        <p>Reconocimiento de títulos, inventario de tomos y temporadas, analytics y recomendaciones. Diseño técnico con respuesta rápida y animaciones suaves.</p>
+      </section>
+
+      <section class="modules-grid">
+        <a class="module-card" href="modules/metadata.html">
+          <div class="module-index">01</div>
+          <h3>METADATA</h3>
+          <p>Reconoce nombres con errores, alias y traducciones. Ficha visual completa.</p>
+        </a>
+        <a class="module-card" href="modules/inventory.html">
+          <div class="module-index">02</div>
+          <h3>INVENTORY</h3>
+          <p>Vistos y pendientes, anime y manga, tomos/temporadas y tickets.</p>
+        </a>
+        <a class="module-card" href="modules/analytics.html">
+          <div class="module-index">03</div>
+          <h3>ANALYTICS</h3>
+          <p>Géneros, rankings y afinidades a partir de tu inventario real.</p>
+        </a>
+        <a class="module-card" href="modules/recommendations.html">
+          <div class="module-index">04</div>
+          <h3>RECOMENDACIONES</h3>
+          <p>Mejores animes y mangas para ti, fuera de lo que ya tienes.</p>
+        </a>
+        
+      </section>
+    </main>
+
+    <footer class="status-bar">
+      <span id="systemStatus">LISTO</span>
+      <span id="statusMessage">Interfaz cargada</span>
+    </footer>
+  </div>
+
+  <script src="assets/js/kairo-home.js"></script>
+  <script>
+    // Fallback si el home bundle no enlaza DOM
+    window.addEventListener('load', function(){
+      document.getElementById('app')?.classList.add('ready');
+      document.getElementById('loadingScreen')?.classList.add('is-hidden');
+    });
+  </script>
+</body>
+</html>

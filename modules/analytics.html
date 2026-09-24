@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="Kairo Analytics — estadísticas combinadas de anime y manga"><title>Kairo — Analytics</title>  <link rel="stylesheet" href="../assets/css/kairo.css">
+</head><body><div id="loadingScreen" class="loading-screen square"><div class="loader-box square"><div class="loading-arrow"></div><div class="loading-text">Cargando Analytics</div></div></div><div class="module-page app"><header class="site-header"><a class="brand-link" href="../index.html"><div class="brand"><div class="brand-mark square">K</div><div class="brand-copy"><div class="brand-name">KAIRO</div><div class="brand-subtitle">ANALYTICS</div></div></div></a><nav class="main-nav"><a class="nav-button square" href="../index.html">INICIO</a><a class="nav-button square" href="metadata.html">METADATA</a><a class="nav-button square" href="inventory.html">INVENTORY</a><a class="nav-button square active" href="analytics.html">ANALYTICS</a><a class="nav-button square" href="recommendations.html">RECOMENDACIONES</a></nav></header><main class="module-main"><section class="module-heading square"><p class="eyebrow">03 / ANALYTICS</p><h1>POPULARIDAD + LO QUE REALMENTE VISTE</h1><p>Kairo mezcla anime y manga en las estadísticas, detecta tus géneros de afinidad y, al pulsar un género, muestra qué títulos de anime y manga destacan dentro de ese tipo según tus unidades vistas y la popularidad del catálogo.</p></section><div id="analyticsTop" class="analytics-top"></div><section id="selectedFilter" class="filter-bar" hidden><strong id="analyticsFilterTitle"></strong><button id="clearAnalyticsFilter" class="clear-filter" type="button">QUITAR FILTRO</button></section><div class="analytics-grid"><section class="analytics-panel"><h2>TIPOS / GÉNEROS MÁS POPULARES</h2><p class="click-help">Pulsa cualquiera para ver abajo el anime y manga más vistos de ese género.</p><div id="genreGrid" class="genre-grid"></div></section><section class="analytics-panel"><h2>TUS AFINIDADES</h2><p>Kairo cuenta los géneros presentes en todo lo que ya tienes guardado y les da más peso cuando tienes más unidades vistas.</p><div id="affinityList" class="rank-list"></div></section><section class="analytics-panel"><h2>ANIME MÁS DESTACADOS</h2><p>Con un género seleccionado, este bloque se concentra en ese tipo. Sin filtro, muestra la mezcla general del catálogo.</p><div id="animeRanking" class="rank-list"></div></section><section class="analytics-panel"><h2>MANGA MÁS DESTACADOS</h2><p>Mismo criterio para manga, manteniendo la información separada del anime.</p><div id="mangaRanking" class="rank-list"></div></section></div></main></div>
+<script src="../assets/data/catalog.js"></script>
+<script src="../assets/data/title-aliases.js"></script>
+<script src="../assets/data/title-profiles.js"></script>
+<script src="../assets/js/kairo-core.js"></script>
+<script src="../assets/js/kairo-services.js"></script>
+<script src="../assets/js/kairo-modules.js"></script>
+<script>
+  window.addEventListener('load', function(){
+    document.getElementById('app')?.classList.add('ready');
+    document.querySelector('.module-page')?.classList.add('ready');
+    document.getElementById('loadingScreen')?.classList.add('is-hidden');
+  });
+</script>
+</body></html>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Cargando">
+  <circle cx="32" cy="32" r="24" fill="none" stroke="#303844" stroke-width="6"/>
+  <path d="M32 8a24 24 0 0 1 24 24" fill="none" stroke="#ffffff" stroke-width="6"/>
+  <path d="M55 25l2 7-7-1" fill="#ffffff"/>
+</svg>
