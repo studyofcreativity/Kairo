@@ -1,16 +1,86 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="Kairo Metadata — fichas legibles de anime y manga"><title>Kairo — Metadata</title>  <link rel="stylesheet" href="../assets/css/kairo.css">
-</head><body><div id="loadingScreen" class="loading-screen square"><div class="loader-box square"><div class="loading-arrow"></div><div class="loading-text">Cargando Metadata</div></div></div><div class="module-page app"><header class="site-header"><a class="brand-link" href="../index.html"><div class="brand"><div class="brand-mark square">K</div><div class="brand-copy"><div class="brand-name">KAIRO</div><div class="brand-subtitle">METADATA</div></div></div></a><nav class="main-nav"><a class="nav-button square" href="../index.html">INICIO</a><a class="nav-button square active" href="metadata.html">METADATA</a><a class="nav-button square" href="inventory.html">INVENTORY</a><a class="nav-button square" href="analytics.html">ANALYTICS</a><a class="nav-button square" href="recommendations.html">RECOMENDACIONES</a></nav></header><main class="module-main"><section class="module-heading square"><p class="eyebrow">01 / METADATA</p><h1>RECONOCIMIENTO Y FICHA</h1><p>Primero selecciona si buscas un manga o un anime. Kairo compara el nombre con títulos alternativos, corrige errores de escritura y puede consultar una fuente externa para encontrar el nombre canónico.</p></section><section class="tool-grid"><div class="tool-panel square"><label for="metadataType">TIPO</label><select id="metadataType" class="square-select"><option value="Manga">MANGA</option><option value="Anime">ANIME</option></select><label for="metadataLang">IDIOMA DEL NOMBRE</label><select id="metadataLang" class="square-select"><option value="auto">AUTO</option><option value="es">ESPAÑOL</option><option value="en">INGLÉS</option><option value="ja">JAPONÉS / ROMAJI</option></select><label for="metadataQuery">NOMBRE QUE VAS A PONER</label><input id="metadataQuery" class="square-input" placeholder="Ej. Sono Bisque Doll wa Koi o Suru"><button id="metadataSearch" class="action-button square" type="button">RECONOCER Y VER FICHA</button><div id="metadataResult" class="result-box square">Elige manga o anime, escribe el nombre y Kairo lo convertirá al título que reconoce.</div></div><div class="tool-panel square"><div class="panel-title">INFORMACIÓN</div><div id="metadataCard" class="empty-state">Aquí aparecerá la información como una ficha normal: argumento, géneros, año, estado, puntuación, créditos, extensión y nombres alternativos.</div></div></section></main></div>
-<script src="../assets/data/catalog.js"></script>
-<script src="../assets/data/title-aliases.js"></script>
-<script src="../assets/data/title-profiles.js"></script>
-<script src="../assets/js/kairo-core.js"></script>
-<script src="../assets/js/kairo-services.js"></script>
-<script src="../assets/js/kairo-modules.js"></script>
-<script>
-  window.addEventListener('load', function(){
-    document.getElementById('app')?.classList.add('ready');
-    document.querySelector('.module-page')?.classList.add('ready');
-    document.getElementById('loadingScreen')?.classList.add('is-hidden');
-  });
-</script>
-</body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kairo Metadata — fichas de anime y manga con Kōmoku">
+  <meta name="theme-color" content="#07090f">
+  <title>Kairo — Metadata</title>
+  <link rel="stylesheet" href="../assets/css/kairo.css">
+</head>
+<body>
+  <div id="loadingScreen" class="loading-screen" aria-live="polite">
+    <div class="loader-box">
+      <div class="loading-arrow" aria-hidden="true"></div>
+      <div class="loading-text">Cargando Metadata</div>
+    </div>
+  </div>
+
+  <div id="app" class="app module-page">
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">K</div>
+        <div class="brand-copy">
+          <div class="brand-name">KAIRO</div>
+          <div class="brand-subtitle">METADATA</div>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Módulos">
+        <a class="nav-button" href="../index.html">INICIO</a>
+        <a class="nav-button active" href="metadata.html">METADATA</a>
+        <a class="nav-button" href="inventory.html">INVENTORY</a>
+        <a class="nav-button" href="analytics.html">ANALYTICS</a>
+        <a class="nav-button" href="recommendations.html">RECOMENDACIONES</a>
+      </nav>
+    </header>
+
+    <main class="module-main">
+      <section class="module-heading">
+        <p class="eyebrow">01 / FICHA</p>
+        <h1>METADATA</h1>
+        <p>Escribe el nombre del anime o manga. Solo esta sección usa el motor Kōmoku.</p>
+      </section>
+
+      <div class="tool-grid">
+        <aside class="tool-panel">
+          <label for="metaQuery">NOMBRE DEL ANIME O MANGA</label>
+          <input id="metaQuery" class="square-input" type="search" autocomplete="off" placeholder="Ej. My Dress-Up Darling">
+
+          <label for="metaType">TIPO</label>
+          <select id="metaType" class="square-select">
+            <option value="Anime">Anime</option>
+            <option value="Manga">Manga</option>
+          </select>
+
+          <label for="metaLangPref">IDIOMA PREFERIDO</label>
+          <select id="metaLangPref" class="square-select">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+          </select>
+
+          <div class="metadata-actions">
+            <button type="button" class="action-button" id="metaSearchBtn">BUSCAR</button>
+          </div>
+          <p id="metaStatus" class="notice" role="status"></p>
+        </aside>
+
+        <section>
+          <div id="metaResult" class="result-box">
+            <div class="empty-state">Escribe el nombre de un anime o manga y elige el tipo.</div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/komoku.js"></script>
+  <script src="../assets/js/metadata-komoku.js"></script>
+  <script>
+    window.addEventListener('load', function(){
+      document.getElementById('app')?.classList.add('ready');
+      document.getElementById('loadingScreen')?.classList.add('is-hidden');
+    });
+  </script>
+</body>
+</html>

@@ -1,4 +1,20 @@
 
+/* Remote anime/manga APIs deshabilitadas fuera de Kōmoku (Metadata). */
+(function(){
+  const BLOCK = /api\.jikan\.moe|graphql\.anilist\.co|kitsu\.io|api\.mangadex\.org/i;
+  const _fetch = window.fetch.bind(window);
+  window.fetch = function(input, init){
+    const url = typeof input === "string" ? input : (input && input.url) || "";
+    if(BLOCK.test(url)){
+      // Solo komoku.js debe llamar estas APIs; se carga en un contexto sin este patch
+      // En páginas que cargan kairo-services, bloqueamos.
+      return Promise.reject(new Error("API externa solo disponible vía Kōmoku en Metadata"));
+    }
+    return _fetch(input, init);
+  };
+})();
+
+
 /* === assets/js/services/00-remote-utils.js === */
 window.KairoRemote=(function(){
   const DEFAULT_TIMEOUT=8000;
